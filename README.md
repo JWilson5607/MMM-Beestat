@@ -15,7 +15,7 @@ You will have to request the api key from beestat
 ## Installing the module
 Go to your MagicMirror modules directory by entering `cd MagicMirror/modules`
 
-run `git clone https://github.com/vincep5/MMM-Beestat`
+run `git clone https://github.com/JWilson5607/MMM-Beestat`
 
 run `cd MMM-Beestat` to get into the newly created folder
 
