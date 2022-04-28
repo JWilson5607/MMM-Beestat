@@ -6,7 +6,7 @@ Module.register("MMM-Beestat", {
     // Default module config.
     defaults: {
         updateInterval: 360 * 60 * 1000, // every 6 hours
-        url: 'https://beestat.io/api/?api_key=',
+        url: 'https://api.beestat.io/?api_key=',
         api_key: "", //request it from beestat
         ecobee_thermostat_id: 0, //via &resource=ecobee_thermostat&method=read_id
         time_period: "month",
