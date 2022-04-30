@@ -8,7 +8,7 @@ Module.register("MMM-Beestat", {
         updateInterval: 360 * 60 * 1000, // every 6 hours
         url: 'https://api.beestat.io/?api_key=',
         api_key: "", //request it from beestat
-        ecobee_thermostat_id: 0, //via &resource=ecobee_thermostat&method=read_id
+        thermostat_id: 0, //via &resource=ecobee_thermostat&method=read_id
         time_period: "month",
         time_count: 3,
         group_by: "day",
@@ -147,7 +147,7 @@ Module.register("MMM-Beestat", {
     },
 
     getData: function () {
-        var url = this.config.url + this.config.api_key + '&resource=runtime_thermostat_summary&method=read_id&arguments={"attributes":{"thermostat_id":'this.ecobee_thermostat_id',"date":{"value":"-'this.time_count''this.time_period'","operator":">"}}}';
+        var url = this.config.url + this.config.api_key + '&resource=runtime_thermostat_summary&method=read_id&arguments={"attributes":{"thermostat_id":'this.thermostat_id',"date":{"value":"-'this.time_count''this.time_period'","operator":">"}}}';
 
         this.sendSocketNotification('beestat_runtime', url);
     },
