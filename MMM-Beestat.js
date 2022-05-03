@@ -61,27 +61,27 @@ Module.register("MMM-Beestat", {
 
                 //heat
                 if (this.hist.data[i].auxiliary_heat_1 > 0) {
-                    heatRuntime += this.hist.data[i].sum.auxiliary_heat_1 / 3600;
+                    heatRuntime += this.hist.data[i].auxiliary_heat_1 / 3600;
                 }
                 if (this.hist.data[i].auxiliary_heat_2 > 0) {
-                    heatRuntime += this.hist.data[i].sum.auxiliary_heat_2 / 3600;
+                    heatRuntime += this.hist.data[i].auxiliary_heat_2 / 3600;
                 }
                 if (this.hist.data[i].auxiliary_heat_3 > 0) {
-                    heatRuntime += this.hist.data[i].sum.auxiliary_heat_3 / 3600;
+                    heatRuntime += this.hist.data[i].auxiliary_heat_3 / 3600;
                 }
                 if (this.hist.data[i].compressor_heat_1 > 0) {
-                    heatRuntime += this.hist.data[i].sum.compressor_heat_1 / 3600;
+                    heatRuntime += this.hist.data[i].compressor_heat_1 / 3600;
                 }
                 if (this.hist.data[i].compressor_heat_2 > 0) {
-                    heatRuntime += this.hist.data[i].sum.compressor_heat_2 / 3600;
+                    heatRuntime += this.hist.data[i].compressor_heat_2 / 3600;
                 }
 
                 //cool
                 if (this.hist.data[i].compressor_cool_1 > 0) {
-                    coolRuntime += this.hist.data[i].sum.compressor_cool_1 / 3600;
+                    coolRuntime += this.hist.data[i].compressor_cool_1 / 3600;
                 }
                 if (this.hist.data[i].compressor_cool_2 > 0) {
-                    coolRuntime += this.hist.data[i].sum.compressor_cool_2 / 3600;
+                    coolRuntime += this.hist.data[i].compressor_cool_2 / 3600;
                 }
 
                 if (heatRuntime > 0) {
