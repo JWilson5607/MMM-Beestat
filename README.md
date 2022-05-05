@@ -31,7 +31,7 @@ modules: [
     header: "Ecobee Runtime",
     config: {
         api_key: "", //request it from beestat
-        ecobee_thermostat_id: 0, //via &resource=ecobee_thermostat&method=read_id
+        ecobee_thermostat_id: 0, //via &resource=thermostat&method=read_id
     }
   }
 ]
