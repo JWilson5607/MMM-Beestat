@@ -82,7 +82,8 @@ Module.register("MMM-Beestat", {
                 }
                 if (this.hist.data[i].sum_compressor_cool_2 > 0) {
                     coolRuntime += this.hist.data[i].sum_compressor_cool_2 / 3600;
-
+                }
+                
                 if (heatRuntime > 0) {
                     arrHeat.push(heatRuntime);
                 } else {
