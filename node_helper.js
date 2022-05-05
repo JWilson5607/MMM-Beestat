@@ -14,9 +14,10 @@ module.exports = NodeHelper.create({
   getData: function (notification, url) {
       var self = this;
       console.log('requesting:' + url);
-      request({ url: url, method: 'POST' }, function (error, response, body) {
+      request({ url: url, method: 'GET' }, function (error, response, body) {
           if (!error && response.statusCode == 200) {
-              var result = JSON.parse(body);
+            console.log(response.statusCode);
+            var result = JSON.parse(body);
               self.sendSocketNotification(notification, result);
           } else {
               console.log("MMM-Beestat : Could not load data.");
