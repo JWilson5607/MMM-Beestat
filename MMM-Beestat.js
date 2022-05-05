@@ -147,7 +147,7 @@ Module.register("MMM-Beestat", {
     },
 
     getData: function () {
-        var url = this.config.url + this.config.api_key + '&resource=runtime_thermostat_summary&method=read_id&arguments={"attributes":{"thermostat_id":'+this.config.thermostat_id+',"date":{"value":"-'+this.config.time_count+''+this.config.time_period+'","operator":">"}}}';
+        var url = this.config.url + this.config.api_key + '&resource=runtime_thermostat_summary&method=read_id&arguments={"attributes":{"thermostat_id":'+this.config.thermostat_id+',"date":{"value":"-'+this.config.time_count+' '+this.config.time_period+'","operator":">"}}}';
 
         this.sendSocketNotification('beestat_runtime', url);
     },
