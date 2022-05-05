@@ -8,7 +8,9 @@ var request = require('request');
 module.exports = NodeHelper.create({
 
   start: function () {
-    console.log('MMM-Beestat helper started ...');
+    console.log('MMM-Beestat helper started ...'),
+      console.log('MMM-Beestat url ...'),
+      console.log(url);
   },
 
   getData: function (notification, url) {
