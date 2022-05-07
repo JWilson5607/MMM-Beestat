@@ -55,33 +55,35 @@ Module.register("MMM-Beestat", {
             var arrCool = [];
             var arrLabels = []; //later set to blanks so the graph plots the points
 
-            for (var i = 0; i < this.hist.data.length; i++) {
+            Object.keys(this.hist).forEach(thermostat_id=>{
+                let thermostat=this.hist[thermostat_id]
+            //for (var i = 0; i < this.hist.data.length; i++) {
                 var heatRuntime = 0;
                 var coolRuntime = 0;
 
                  //heat
-                if (this.hist.data[i].sum_auxiliary_heat_1 > 0) {
-                    heatRuntime += this.hist.data[i].sum_auxiliary_heat_1 / 3600;
+                if (thermostat.sum_auxiliary_heat_1 > 0) {
+                    heatRuntime += thermostat.sum_auxiliary_heat_1 / 3600;
                 }
-                if (this.hist.data[i].sum_auxiliary_heat_2 > 0) {
-                    heatRuntime += this.hist.data[i].sum_auxiliary_heat_2 / 3600;
+                if (thermostat.sum_auxiliary_heat_2 > 0) {
+                    heatRuntime += thermostat.sum_auxiliary_heat_2 / 3600;
                 }
-                if (this.hist.data[i].sum_auxiliary_heat_3 > 0) {
-                    heatRuntime += this.hist.data[i].sum_auxiliary_heat_3 / 3600;
+                if (thermostat.sum_auxiliary_heat_3 > 0) {
+                    heatRuntime += thermostat.sum_auxiliary_heat_3 / 3600;
                 }
-                if (this.hist.data[i].sum_compressor_heat_1 > 0) {
-                    heatRuntime += this.hist.data[i].sum_compressor_heat_1 / 3600;
+                if (thermostat.sum_compressor_heat_1 > 0) {
+                    heatRuntime += thermostat.sum_compressor_heat_1 / 3600;
                 }
-                if (this.hist.data[i].sum_compressor_heat_2 > 0) {
-                    heatRuntime += this.hist.data[i].sum_compressor_heat_2 / 3600;
+                if (thermostat.sum_compressor_heat_2 > 0) {
+                    heatRuntime += thermostat.sum_compressor_heat_2 / 3600;
                 }
 
                 //cool
-                if (this.hist.data[i].sum_compressor_cool_1 > 0) {
-                    coolRuntime += this.hist.data[i].sum_compressor_cool_1 / 3600;
+                if (thermostat.sum_compressor_cool_1 > 0) {
+                    coolRuntime += thermostat.sum_compressor_cool_1 / 3600;
                 }
-                if (this.hist.data[i].sum_compressor_cool_2 > 0) {
-                    coolRuntime += this.hist.data[i].sum_compressor_cool_2 / 3600;
+                if (thermostat.sum_compressor_cool_2 > 0) {
+                    coolRuntime += thermostat.sum_compressor_cool_2 / 3600;
                 }
                 
                 if (heatRuntime > 0) {
@@ -92,11 +94,12 @@ Module.register("MMM-Beestat", {
                 if (coolRuntime > 0) {
                     arrCool.push(coolRuntime);
                 } else {
-                    arrCool.push(0);
+                    arrCool.push(1);
                 }
 
-                arrLabels.push('');
-            }
+                arrLabels.push(thermostat_id);
+            //}
+            })
             
             var chartconfig = {
                 type: 'bar',
@@ -104,17 +107,19 @@ Module.register("MMM-Beestat", {
                     labels: arrLabels,
                     datasets: [{
                         backgroundColor: "#fd9644",
-                        data: arrHeat
+                        data: arrHeat,
+                        label:"heat"
                     },
                     {
                         backgroundColor: "#45aaf2",
-                        data: arrCool
+                        data: arrCool,
+                        label:"cool"
                     }]
                 },
                 options: {
                     scales: { xAxes: [{ stacked: true }], yAxes: [{ stacked: true }] },
                     elements: { point: { radius: 0 } }, 
-                    legend: { display: false },
+                    legend: { display: true },
                     title: { display: true, text: this.config.chart_title, padding: 5 }
                 }
             };
