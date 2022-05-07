@@ -15,12 +15,17 @@ module.exports = NodeHelper.create({
       var self = this;
       console.log('requesting:' + url);
       request({ url: url, method: 'GET' }, function (error, response, body) {
+        console.log(self.name+": request response="+JSON.parse(error)+" statusCode="+response.statusCode)
           if (!error && response.statusCode == 200) {
-            console.log(response.statusCode);
             var result = JSON.parse(body);
-              self.sendSocketNotification(notification, result);
+            console.log(JSON.stringify(result,null,2) );
+            if(result.success=='true'){
+              self.sendSocketNotification(notification, result.data);
+            } else {
+              console.log(self.name +" api request failed =>"+ result.data.error_message)
+            }
           } else {
-              console.log("MMM-Beestat : Could not load data.");
+              console.log("MMM-Beestat : Could not load data. error="+JSON.stringify(error));
           }
       });
   },
