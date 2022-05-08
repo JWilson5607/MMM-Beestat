@@ -73,7 +73,7 @@ data: {  //  is an object
           if (!error && response.statusCode == 200) {
             var result = JSON.parse(body);
             console.log(JSON.stringify(result,null,2) );
-            self.sendSocketNotification(notification, self.data);
+            self.sendSocketNotification(notification, result.data);
             if(result.success=='true'){
               self.sendSocketNotification(notification, result.data);
             } else {
