@@ -26,12 +26,17 @@ Add `MMM-Beestat` module to the `modules` array in the `config/config.js` file:
 ````javascript
 modules: [
   {
-    module: "MMM-Beestat",
-    position: "top_right",
-    header: "Ecobee Runtime",
-    config: {
-        api_key: "", //request it from beestat
-        ecobee_thermostat_id: 0, //via &resource=thermostat&method=read_id
-    }
-  }
+			module: "MMM-Beestat",
+			position: "top_right",
+			header: "Ecobee Runtime",
+			config: {
+				api_key: "", //request it from beestat
+				thermostat_id: , //via &resource=ecobee_thermostat&method=read_id
+				time_period: "day",
+				time_count: 30,
+				chart_title: "Last 30 Days",
+				width: 600,
+				height:400
+			}
+		},
 ]
