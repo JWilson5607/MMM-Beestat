@@ -74,7 +74,7 @@ data: {  //  is an object
             var result = JSON.parse(body);
             console.log(JSON.stringify(result,null,2) );
             //self.sendSocketNotification(notification, result.data);
-            if(result.success=='true'){
+            if(result.success==true){
               self.sendSocketNotification(notification, result.data);
             } else {
               console.log(self.name +" api request failed =>"+ result.data.error_message)
